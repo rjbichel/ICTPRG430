@@ -1,0 +1,66 @@
+//WK4 Class notes
+
+namespace WK4ICT430
+{
+    class Program
+    {
+     static void Main(string[] args)
+        {
+            int numberOne = 14;
+            int numberTwo = 10;
+            int operationAdding = numberOne + numberTwo;
+            int operationMultiplying = numberOne * numberTwo;
+            double operationAddingDouble = numberOne + numberTwo;
+
+            Console.WriteLine(operationAdding + " is the addition result " + operationMultiplying + " is the multiplication result!");
+
+            //Create variable that takes user input into system
+            Console.Write("Please greet me: ");
+            string userInput = Console.ReadLine();
+
+            //Note you can check a bool value with a compare statement inside the variable assignment
+            bool didTheySayHi = userInput == "hi";
+
+            //if (userInput == "hi") 
+            if (didTheySayHi)
+            {
+                Console.WriteLine("Oh hi there!");
+            }
+            else if (userInput == "hello")
+            {
+                Console.WriteLine("hello");
+                Console.WriteLine(operationAddingDouble);
+            }
+            else
+            {
+                Console.WriteLine("Well, good afternoon to you!");
+            }
+
+            //Switch use
+            //Compares userInput if it is true to the cases, inserts itself into each case and compares the results
+            switch (userInput)
+            {
+                case ("hello"):
+                    Console.WriteLine("Well, hello!");
+                    break;
+
+                case "hi":
+                    Console.WriteLine("Well, hi!");
+                    break;
+                default:
+                    Console.WriteLine("Oh well.");
+                    break;
+            }
+            //You can use switch(userInput == hello) - this only returns a bool value, therfore cases requirments must be true or false in there writing
+            //Example:
+            //switch (userInput == "Hello")
+           //{
+            // case (true):
+                //Console.WriteLine("Well hello");
+            // case (false):
+                //Console.WriteLine("Oh well");
+           //}
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
