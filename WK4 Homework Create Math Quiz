@@ -1,0 +1,47 @@
+namespace ICTPRG430WK4HW
+{
+    class programMathQuiz
+    {
+        public static void Main(String[] args)
+        {
+            //have ints to store answer and question values
+            int numberAnswer = 0, numberOne = 0, numberTwo = 0;
+            Random rnd = new Random();
+            int correctAnswerCount = 0;
+            int questionNumber = 1;
+            
+
+            Console.WriteLine("Please solve the following three math questions:");
+
+            //for loop to generate three questions
+            for (int i = 1; i <= 3; i++)
+            {
+                numberOne = rnd.Next(1, 12);
+                numberTwo = rnd.Next(1, 12);
+                numberAnswer = numberOne * numberTwo;
+
+                //prompts and gathers user input
+                Console.Write("Q" + questionNumber + ". " + numberOne + " * " + numberTwo + "= ");
+                int userInput =  int.Parse(Console.ReadLine());
+
+                //check if user was correct or incorrect with response
+                if (userInput == numberAnswer)
+                {
+                    Console.WriteLine("Correct");
+                    Console.WriteLine("");
+                    correctAnswerCount++;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect");
+                    Console.WriteLine();
+                }
+                //increment questionNumber to display correct question number at next question
+                questionNumber++;
+            }
+            //print number of correct answers out of 3
+            Console.WriteLine("You got " + correctAnswerCount + " correct out of 3 questions!");
+        }
+    }
+}
+
