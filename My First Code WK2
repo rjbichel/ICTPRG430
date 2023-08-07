@@ -1,0 +1,47 @@
+using System;
+public class Program
+{
+	public static void Main()
+	{
+		//Creating 2 string(sentence) variable types and giving them values.
+		string myMessage = "Hello, ";
+		string myName = "Reece Bichel";
+		//Creating an integer (whole number) data type and then giving it a value on the following line.
+		int number1;
+		//The value assigned to this variable will be the result of the maths calculation.
+		number1 = 25 * 2 + 34;
+		
+		//Initial greeting
+		Console.WriteLine(myMessage + "my name is " + myName + "!");
+		
+		//Creating variable for input
+		string userName;
+		
+		//Writing question
+		Console.WriteLine("What is your name?");
+		
+		//Input request
+		userName = Console.ReadLine();
+		
+		//Creating another integer data type and then giving it a value on the same line.
+		int dayNumber = 1;
+		
+//Updating dayNumber to have user input instead
+		Console.WriteLine("What day are you up to at TAFE?");
+		
+		//Converting user input to int
+		dayNumber = int.Parse(Console.ReadLine());
+		
+		//Printing the result of the number1 variable to the screen.
+		Console.WriteLine(number1);
+		
+		//Sending out input to print screen
+		Console.WriteLine("Nice to meet you " + userName + "!");
+		
+		//Printing a message to screen which is made of several of the above variables and
+		//additional string values to create a complete sentence.
+		Console.WriteLine(myMessage+ " " + myName + " how is day number " + dayNumber + " going?");
+		
+		
+	}
+}
