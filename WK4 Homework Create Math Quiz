@@ -16,8 +16,9 @@ namespace ICTPRG430WK4HW
             //for loop to generate three questions
             for (int i = 1; i <= 3; i++)
             {
-                numberOne = rnd.Next(1, 12);
-                numberTwo = rnd.Next(1, 12);
+                //rnd uses between 1>= and <13 therefore highest value can only be 12
+                numberOne = rnd.Next(1, 13);
+                numberTwo = rnd.Next(1, 13);
                 numberAnswer = numberOne * numberTwo;
 
                 //prompts and gathers user input
@@ -44,4 +45,3 @@ namespace ICTPRG430WK4HW
         }
     }
 }
-
