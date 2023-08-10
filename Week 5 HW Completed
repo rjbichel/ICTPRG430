@@ -1,0 +1,120 @@
+using System;
+
+public class Week5
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("What is the result of 5+5?");
+        string input1 = Console.ReadLine();
+        int input1Int = int.Parse(input1);
+
+        //int input1Int0 = int.Parse(Console.ReadLine());
+
+        if (input1Int == 10)
+        {
+            Console.WriteLine("Correct!");
+        }
+        else
+        {
+            Console.WriteLine("Incorrect");
+        }
+
+        // Don't use the same object for multiple random number.
+        //Random rndObj = new Random();  
+
+        bool isCorrect = true;
+        int counter = 0;
+        // XOR: exaplain logical operation (optional homework)
+        // HW: From my understanding XOR is when a value is not equivalent to eachother and that is the condition the program is searching for
+        // Example:
+        // false =! true => true
+        // true =! true => false
+        // false =! true => false
+        // XOR is represented as ^ in C#
+        //
+        // AND &&
+        // 0 0 => 0
+        // 0 1 => 0
+        // 1 0 => 0
+        // 1 1 => 1 
+        //
+        // OR ||
+        // 0 0 => 0
+        // 0 1 => 1
+        // 1 0 => 1
+        // 1 1 => 1 
+        //while (false && false)
+        while (isCorrect && (counter != 10))
+        {
+
+            // Generate randon number.
+            int rndInt1 = new Random().Next(0, 10);
+            int rndInt2 = new Random().Next(0, 10);
+
+            //Create new variable that will use subtraction or addition randomly
+            //it will store an int value that is either 1 or 0, 1 = subtraction 0 = addition
+            int operationDecider = new Random().Next(0, 2);
+
+            //Checks value of operationDecider to decide if to do addition or subtraction
+            if (operationDecider == 0)
+            {
+                Console.WriteLine($"What is the result of {rndInt1}+{rndInt2}?");
+                string input2 = Console.ReadLine();
+                int input2Int = int.Parse(input2);
+
+                if (input2Int == rndInt1 + rndInt2)
+                {
+                    Console.WriteLine("Correct!");
+                    Console.WriteLine("Next question!");
+
+                    counter = counter + 1;
+
+                    // Homework: explain line 46 and 47. What is the difference? 
+                    //counter += 1;
+                    //counter++ adds to original value after the original value is called to a new variable;
+                    // if counter = 1 and counterIncrement = counter++ counterIncrement will = 1 while counter will = 2
+                    //++counter adds to original value before value is called to a new variable;
+                    // if counter = 1 and counterIncrement = ++counter counterIncrement will = 2 while counter will = 2
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect");
+                    isCorrect = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine($"What is the result of {rndInt1}-{rndInt2}?");
+                string input2 = Console.ReadLine();
+                int input2Int = int.Parse(input2);
+
+                if (input2Int == rndInt1 - rndInt2)
+                {
+                    Console.WriteLine("Correct!");
+                    Console.WriteLine("Next question!");
+
+                    counter = counter + 1;
+                    }
+                else
+                {
+                    Console.WriteLine("Incorrect");
+                    isCorrect = false;
+                }
+            }
+
+            /*if (counter == 10)
+            {
+                break;
+                isCorrect = false;
+            }*/
+        }
+
+        for (int index = 100; index > 10; index = index - 10)
+        {
+            Console.WriteLine(index);
+        }
+
+        // OPTIONAL: homework.
+        // Modify this program to randomly select between addition and substruction on the line
+    }
+}
