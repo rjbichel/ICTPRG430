@@ -1,0 +1,45 @@
+//Testing what the difference between prefix and suffix increments on variables
+int incrementPrefix = 1;
+int incrementSuffix = 1;
+
+//In this loop loopIteration is always equal to incrementPrefix
+//This is because the prefix use of increment calls the new number in the increment to the variable
+// loopIteration = 1 if incrementPrefix is 0 if displayed as loopIteration = ++incrementPrefix
+while (incrementPrefix < 3)
+{
+    int loopIteration = ++incrementPrefix;
+    Console.WriteLine(loopIteration);
+}
+
+//In this loop loopIteration is always 1 number behind incrementSuffix
+//This is because the prefix use of increment calls the new number in the increment to the variable
+//loopIteration = 0 if incrementPrefix is 0 if displayed as loopIteration = incrementSuffix++
+//Additionally incrementSuffix always changes it's original value in that moment;
+//Therefore, incrementSuffix = 0, incrementSuffix++ = 1
+while (incrementSuffix < 3)
+{
+    int loopIteration = incrementSuffix++;
+    Console.WriteLine(loopIteration);
+}
+
+//Testing XOR statement and understanding
+bool isFalse = false;
+bool isTrue = true;
+
+//XOR operation is represented as ^ in C#
+bool XOR = isTrue ^ isFalse;
+
+//This statement confirms that XOR is true when two different values are not equivalent, it is equivalent to =! congruency check
+if (isTrue =! isFalse)
+{
+    Console.WriteLine("Expected Result of XOR being non equivalent conditions");
+}
+else
+{
+    Console.WriteLine("Unexpected");
+}
+
+//Rewrites above if statement as true for the variable operation
+Console.WriteLine(XOR);
+
+Console.WriteLine($"{incrementPrefix} prefix and {incrementSuffix} suffix");
