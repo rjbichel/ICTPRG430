@@ -1,0 +1,59 @@
+using System;
+
+public class WeeK5Broken
+
+{
+    //Static means you do not need to call a class to use it
+    //void means the code does not return a value
+    static void Main(string[] args)
+    {
+        int[] numberArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        //Generate random prompt
+        Random rnd = new Random();
+
+        int numberSelectorOne;
+        int numberOne;
+        int numberTwo;
+        int numberCorrect = 0;
+        bool activeLoop = true;
+
+        while (activeLoop)
+        {
+            //Selects a random value between 0 and the maximum length size but not including the max length size
+            //arrayLength = 10 random chooses between 0 and <10
+            numberSelectorOne = rnd.Next(numberArray.Length);
+            numberOne = numberArray[numberSelectorOne];
+
+            numberSelectorOne = rnd.Next(numberArray.Length);
+            numberTwo = numberArray[numberSelectorOne];
+
+            //ask user for answer from randomly generated numbers
+            //using $ and {} to access variable value without needing to break string sentence with +
+            Console.Write($"{numberOne} + {numberTwo} = ");
+            int input1 = int.Parse(Console.ReadLine());
+            int solutionOne = numberOne + numberTwo;
+            if (solutionOne == input1)
+            {
+                Console.WriteLine("Correct");
+                Console.WriteLine();
+                numberCorrect++;
+            }
+            else
+            {
+                Console.WriteLine("Incorrect");
+                activeLoop = false;
+                Console.WriteLine();
+                Console.WriteLine("Ending while loop...");
+            }
+            
+            //ending loop if number of correct answer is eaqual to 10
+            if (numberCorrect == 10)
+            {
+                activeLoop = false;
+                Console.WriteLine();
+                Console.WriteLine("Ending while loop...");
+            }
+        }    
+    }
+}
