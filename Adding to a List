@@ -1,0 +1,78 @@
+//Provide math question to user by adding to a list. User should be able to choose how many questions they get. 
+using System;
+
+namespace AddingToAList;
+public class addingToList
+{
+    static void Main(string[] args)
+    {
+        //Assign variables to collect list size, user input, randomly generated numbers
+        bool isUserInputInt;
+        Console.Write("Please enter the number of questions you would like to answer: ");
+        string userInput = Console.ReadLine();
+        Console.WriteLine();
+        int userInputInt, userNumberOfQuestions, randomNumberOne = new Random().Next(1, 13), randomNumberTwo = new Random().Next(1, 13);
+
+        //Check if userInput is transferable to an int value
+
+        isUserInputInt = int.TryParse(userInput, out userNumberOfQuestions);
+
+        while (isUserInputInt == false)
+        {
+            Console.Write("Looks like you entered a non int value, please enter a whole number: ");
+            userInput = Console.ReadLine();
+
+            isUserInputInt = int.TryParse(userInput, out userNumberOfQuestions);
+        }
+
+        //Create a list value
+
+        List<string> listQuestions = new List<string>();
+        List<string> listAnswers = new List<string>();
+        int currentRollNumber = 0;
+
+        //Loop for doing number of equations with prompt and options for answer
+        while (currentRollNumber < userNumberOfQuestions)
+        {
+            listQuestions.Add($"{randomNumberOne} + {randomNumberTwo} = ");
+            listAnswers.Add($"{randomNumberOne + randomNumberTwo}");
+            Console.Write(listQuestions[currentRollNumber]);
+            userInput = Console.ReadLine();
+            isUserInputInt = int.TryParse(userInput, out userInputInt);
+
+            //if prompt is not a number ask user to reinput a value that is an int
+            while (isUserInputInt == false)
+            {
+                Console.WriteLine();
+                Console.Write("Looks like you entered a non int value, please enter a whole number.");
+
+                Console.WriteLine();
+                Console.Write(listQuestions[currentRollNumber]);
+                userInput = Console.ReadLine();
+
+                isUserInputInt = int.TryParse(userInput, out userInputInt);
+            }
+            //Checks whether user has input the correct value
+            if (userInputInt == randomNumberOne + randomNumberTwo)
+            {
+                Console.WriteLine("Correct!");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Incorrect");
+                Console.WriteLine();
+            }
+            //generates new random number
+            randomNumberOne = new Random().Next(1, 13);
+            randomNumberTwo = new Random().Next(1, 13);
+            currentRollNumber++;
+        }
+        //goal: writes list of equations asked and their representive answer
+        Console.WriteLine("Questions and answers:");
+        for (currentRollNumber = 0; currentRollNumber < listQuestions.Count(); currentRollNumber++)
+        {
+            Console.WriteLine($"{listQuestions[currentRollNumber]} {listAnswers[currentRollNumber]}");
+        }
+    }
+}
